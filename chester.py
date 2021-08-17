@@ -46,6 +46,7 @@ def getLastIndex2(name):
         row = int(s[0].rstrip())
         col= int(s[1].rstrip())
         prev_col = col
+        prev_row=row
         col=(col)%7 +1
         if col ==1 and prev_col==7:row+=1
         result += f'{row},{col}'+'\n'
@@ -56,6 +57,7 @@ def getLastIndex2(name):
         row = int(s[0].rstrip())
         col= int(s[1].rstrip())
         prev_col = col
+        prev_row=row
         col=(col)%7 +1           
         if col ==1 and prev_col==7:row+=1
         result+=content[0]
@@ -68,7 +70,7 @@ def getLastIndex2(name):
     fileIndex = open(r'indexes.txt','w')
     fileIndex.write(result)
     fileIndex.close()
-    return (row,col)
+    return (prev_row,prev_col)
 
 def writeToCell():
     input1 = input('Enter Garrett\'s Weight: ')
